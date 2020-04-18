@@ -1,10 +1,9 @@
 import React from "react";
-import { Player } from "./src/components/Players";
-import Navbar from "./src/components/NavBar";
-import { useDarkMode } from "./components/useDarkMode";
-
-//import "./App.css";
-
+import { Player } from "./components/Players";
+import Navbar from "./components/NavBar";
+import { useDarkMode } from "./components/UseDarkMode";
+import "./styles.scss";
+import "./App.css";
 function App() {
   return (
     <div>
