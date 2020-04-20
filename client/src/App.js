@@ -1,16 +1,28 @@
 import React from "react";
-import { Player } from "./components/Players";
+import PlayerCard from "./components/PlayerCard";
 import Navbar from "./components/NavBar";
-import { useDarkMode } from "./components/UseDarkMode";
-import "./styles.scss";
 import "./App.css";
-function App() {
-  return (
-    <div>
-      <Navbar />
-      <Player />
-    </div>
-  );
+
+class App extends React.Component {
+  state = {
+    players: [],
+  };
+  componentDidMount() {
+    fetch(`http://localhost:5000/api/players`)
+      .then((res) => res.json())
+      .then((res) => this.setState({ players: res }))
+      .catch((err) => console.log(err));
+  }
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        {this.state.players.map((player) => (
+          <PlayerCard key={player.id} {...player} />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
