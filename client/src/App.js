@@ -16,7 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <Navbar />
         {this.state.players.map((player) => (
           <PlayerCard key={player.id} {...player} />
         ))}

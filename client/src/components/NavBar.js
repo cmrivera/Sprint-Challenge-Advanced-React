@@ -1,5 +1,5 @@
 import React from "react";
-import { useDarkMode } from "./components/UseDarkMode";
+import { useDarkMode } from "../components/useDarkMode";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useDarkMode(false);
