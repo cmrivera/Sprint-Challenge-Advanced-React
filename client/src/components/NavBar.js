@@ -1,22 +1,13 @@
 import React from "react";
-import useDarkMode from "./UseDarkMode";
+import { useDarkMode } from "../components/useDarkMode";
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useDarkMode();
-  const toggleMode = (e) => {
-    e.preventDefault();
-    setDarkMode(darkMode !== "dark" ? "dark" : "standard");
-  };
+  const [darkMode, setDarkMode] = useDarkMode(false);
+
   return (
-    <nav className="navbar">
-      <h1>Players</h1>
-      <div className="dark-mode__toggle">
-        <div
-          onClick={toggleMode}
-          className={darkMode === "dark" ? "toggle toggled" : "toggle"}
-        />
-      </div>
-    </nav>
+    <div style={{ background: "lightgray", width: "100%", height: 50 }}>
+      <button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</button>
+    </div>
   );
 };
 
